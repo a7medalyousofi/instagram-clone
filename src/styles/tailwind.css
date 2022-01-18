@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input__control {
+	@apply text-gray-900 ring-gray-900 ring-opacity-5 placeholder-gray-400 appearance-none bg-white rounded-md block w-full px-3 py-2 border border-transparent shadow ring-1 sm:text-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none;
+}
+/* .input--sucess {
+	@apply !border-green-600 !shadow-green-200;
+}
+.input--danger {
+	@apply !border-red-600 !shadow-red-200 focus:border-red-500 focus:ring-red-500;
+} */
+
+.btn {
+	@apply block py-2 px-3 border border-transparent rounded-md shadow-sm sm:text-sm;
+}
+.btn__primary {
+	@apply bg-blue-700 hover:bg-blue-600 text-white font-medium;
+}
+.btn--focused {
+	@apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-50;
+}
+.btn--disabled {
+	@apply disabled:opacity-75 disabled:cursor-not-allowed;
+}
