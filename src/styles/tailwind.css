@@ -13,7 +13,7 @@
 } */
 
 .btn {
-	@apply block py-2 px-3 border border-transparent rounded-md shadow-sm sm:text-sm;
+	@apply flex justify-center items-center py-2 px-3 border border-transparent rounded-md shadow-sm sm:text-sm;
 }
 .btn__primary {
 	@apply bg-blue-700 hover:bg-blue-600 text-white font-medium;
