@@ -91,7 +91,7 @@ export default function Login() {
 						<button
 							disabled={isInvalid}
 							type='submit'
-							className='w-full btn btn__primary btn--focused btn--disabled'>
+							className='w-full btn btn__sm btn__primary btn--focused btn--disabled'>
 							Login
 						</button>
 					</form>

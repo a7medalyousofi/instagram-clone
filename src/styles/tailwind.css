@@ -13,10 +13,19 @@
 } */
 
 .btn {
-	@apply flex justify-center items-center py-2 px-3 border border-transparent rounded-md shadow-sm sm:text-sm;
+	@apply flex justify-center items-center border border-transparent sm:text-base rounded-md font-medium text-slate-800;
+}
+.btn__sm {
+	@apply py-1 px-3;
+}
+.btn__lg {
+	@apply py-2 px-3;
 }
 .btn__primary {
-	@apply bg-blue-700 hover:bg-blue-600 text-white font-medium;
+	@apply bg-blue-700 hover:bg-blue-600 text-white;
+}
+.btn__outlined {
+	@apply border-slate-200 hover:bg-slate-100;
 }
 .btn--focused {
 	@apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-50;

@@ -173,7 +173,7 @@ export default function SignUp() {
 						<button
 							disabled={isInvalid}
 							type='submit'
-							className={`w-full btn btn__primary btn--focused ${
+							className={`w-full btn btn__sm btn__primary btn--focused ${
 								isInvalid && "btn--disabled"
 							}`}>
 							Sign Up
