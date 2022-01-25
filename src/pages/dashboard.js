@@ -9,12 +9,12 @@ export default function Dashboard() {
 	}, []);
 
 	return (
-		<div className=''>
+		<>
 			<Header />
-			<div>
+			<main className='grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-x-6 md:gap-y-0 justify-between mx-auto max-w-screen-lg p-4'>
 				<Timeline />
 				<Sidebar />
-			</div>
-		</div>
+			</main>
+		</>
 	);
 }

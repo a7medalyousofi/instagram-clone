@@ -6,6 +6,7 @@
 		"@testing-library/jest-dom": "^5.16.1",
 		"@testing-library/react": "^12.1.2",
 		"@testing-library/user-event": "^13.5.0",
+		"@welldone-software/why-did-you-render": "^6.2.3",
 		"date-fns": "^2.28.0",
 		"firebase": "^9.6.3",
 		"postcss-cli": "^9.1.0",

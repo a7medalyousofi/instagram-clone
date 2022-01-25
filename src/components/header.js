@@ -13,12 +13,14 @@ export default function Header() {
 	const { user } = useContext(UserContext);
 
 	return (
-		<div className='h-[60px] bg-white border-b border-slate-200 shadow-md shadow-slate-50'>
-			<div className='container mx-auto max-w-5xl'>
+		<nav className='h-[60px] bg-white border-b border-slate-200 shadow-md shadow-slate-50'>
+			<div className='container mx-auto max-w-5xl px-4'>
 				<div className='flex justify-between items-center h-[60px]'>
 					<Link to={ROUTES.DASHBOARD}>
 						<img
-							className='h-7'
+							height='28px'
+							width='103px'
+							className='h-7 w-full'
 							src='/images/logo.svg'
 							alt='Yemen Photos Logo'
 						/>
@@ -29,7 +31,7 @@ export default function Header() {
 								<Link to={ROUTES.DASHBOARD} className=''>
 									<FiHome className='h-6 w-6' />
 								</Link>
-								<div className='relative w-8 h-8'>
+								<div className='relative w-8 h-8 mr-1'>
 									<button
 										type='button'
 										className={`bg-slate-100 rounded-full ring-2 ring-offset-2 ring-slate-200 overflow-hidden ${
@@ -38,7 +40,9 @@ export default function Header() {
 										onClick={() => setIsOpen(!isOpen)}>
 										{user.displayName ? (
 											<img
-												className='select-none h-full w-full'
+												height='32px'
+												width='32px'
+												className='select-none h-8 w-8'
 												src={`/images/avatars/${user.displayName}.jpg`}
 												alt={`${user.displayName}`}
 											/>
@@ -83,7 +87,7 @@ export default function Header() {
 									onClick={() => navigate(ROUTES.LOGIN)}>
 									Log In
 								</button>
-								<button type='button' className='btn__sm'>
+								<button type='button' className='btn'>
 									Sign Up
 								</button>
 							</>
@@ -91,6 +95,6 @@ export default function Header() {
 					</div>
 				</div>
 			</div>
-		</div>
+		</nav>
 	);
 }
