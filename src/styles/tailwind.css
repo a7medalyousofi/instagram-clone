@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .input__control {
-	@apply text-gray-900 ring-gray-900 ring-opacity-5 placeholder-gray-400 appearance-none bg-white rounded-md block w-full px-3 py-2 border border-transparent shadow ring-1 sm:text-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none;
+  @apply block w-full appearance-none rounded-md border border-transparent bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow ring-1 ring-gray-900 ring-opacity-5 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm;
 }
 /* .input--sucess {
 	@apply !border-green-600 !shadow-green-200;
@@ -13,32 +13,45 @@
 } */
 
 .btn {
-	@apply flex justify-center items-center border border-transparent sm:text-base rounded-md font-medium text-slate-800;
+  @apply flex items-center justify-center rounded-md border border-transparent font-medium text-slate-800;
 }
 .btn__sm {
-	@apply py-1 px-3;
+  @apply py-1 px-3 text-sm;
 }
 .btn__lg {
-	@apply py-2 px-3;
+  @apply py-2 px-3 text-base;
 }
 .btn__primary {
-	@apply bg-blue-700 hover:bg-blue-600 text-white;
+  @apply bg-blue-700 text-white hover:bg-blue-600;
 }
 .btn__outlined {
-	@apply border-slate-200 hover:bg-slate-100;
+  @apply border-slate-200 hover:bg-slate-100;
 }
 .btn--focused {
-	@apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-50;
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-50;
 }
 .btn--disabled {
-	@apply disabled:opacity-75 disabled:cursor-not-allowed;
+  @apply disabled:cursor-not-allowed disabled:opacity-75;
 }
 
+.avatar {
+  @apply flex shrink-0 items-center justify-center rounded-full;
+}
 .avatar__sm {
-	@apply w-14 h-14 rounded-full shrink-0 flex justify-center items-center;
+  @apply h-8 w-8;
 }
 
+.avatar__md {
+  @apply h-14 w-14;
+}
+.inl {
+  @apply flex items-center justify-center;
+}
+.inline-skeleton {
+  @apply col-span-2 flex w-full items-center;
+  line-height: 1;
+}
 .avatar-skeleton {
-	@apply w-full h-full;
-	line-height: 1;
+  @apply h-full w-full;
+  line-height: 1;
 }
