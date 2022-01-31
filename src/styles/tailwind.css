@@ -44,9 +44,6 @@
 .avatar__md {
   @apply h-14 w-14;
 }
-.inl {
-  @apply flex items-center justify-center;
-}
 .inline-skeleton {
   @apply col-span-2 flex w-full items-center;
   line-height: 1;
@@ -54,4 +51,7 @@
 .avatar-skeleton {
   @apply h-full w-full;
   line-height: 1;
+}
+.post__img__skeleton {
+  @apply h-[375px] w-full md:h-[614px];
 }

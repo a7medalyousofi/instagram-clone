@@ -2,11 +2,12 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { DEFAULT_IMAGE_PATH } from "../../constants/paths";
 
 const User = ({ username, fullName, emailAddress }) => (
   <Link
     to={`/p/${username}`}
-    className="flex items-center gap-6 overflow-hidden rounded-xl bg-white p-4"
+    className="flex items-center gap-6 overflow-hidden rounded-xl border border-gray-200 bg-white p-4"
   >
     {!username ? (
       <div className="avatar__sm">
@@ -18,6 +19,9 @@ const User = ({ username, fullName, emailAddress }) => (
           className="h-full w-full rounded-full bg-slate-100 ring-2 ring-blue-400 ring-offset-2"
           src={`/images/avatars/${username}.jpg`}
           alt="default avatar"
+          onError={(e) => {
+            e.target.src = DEFAULT_IMAGE_PATH;
+          }}
         />
       </div>
     )}
