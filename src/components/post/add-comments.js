@@ -19,7 +19,7 @@ export default function AddComment({
     e.preventDefault();
     // new array & put the new comment in the array, add the old comments to the array.
     // ==> Result new comment with old comments.
-    setComments([{ displayName, comment }, ...comments]);
+    setComments([...comments, { displayName, comment }]);
 
     // clear comment input after submit
     setComment("");

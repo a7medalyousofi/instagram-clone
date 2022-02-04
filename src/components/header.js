@@ -62,9 +62,15 @@ export default function Header() {
                   {/* Dropdown menu */}
                   {isOpen && (
                     <div className="absolute top-10 right-0 z-10 flex min-w-[150px] flex-col items-center overflow-hidden rounded-md border border-slate-200 bg-white text-left shadow-sm">
-                      <div className="flex w-full cursor-pointer items-center py-2 px-4 hover:bg-slate-50">
+                      <Link
+                        to={`/p/${user?.username}`}
+                        className="flex w-full cursor-pointer items-center py-2 px-4 hover:bg-slate-50"
+                      >
                         <FiUser className="mr-2 h-4 w-4" /> Profile
-                      </div>
+                      </Link>
+                      {/* <div className="flex w-full cursor-pointer items-center py-2 px-4 hover:bg-slate-50">
+                        <FiUser className="mr-2 h-4 w-4" /> Profile
+                      </div> */}
                       <div
                         className="flex w-full cursor-pointer items-center border-t py-2 px-4 hover:bg-slate-50"
                         onClick={() => firebase.auth().signOut()}
