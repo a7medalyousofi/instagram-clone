@@ -26,7 +26,7 @@
 }
 
 .btn__outlined {
-  @apply border-slate-200 hover:bg-slate-100;
+  @apply border-gray-200 hover:bg-slate-100;
 }
 .btn--focused {
   @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-50;

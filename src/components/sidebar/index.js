@@ -9,7 +9,7 @@ export default function Sidebar() {
   } = useUser();
 
   return (
-    <section className="order-1 space-y-6 md:order-2">
+    <section className="order-1 space-y-4 sm:space-y-6 md:order-2">
       <User
         username={username}
         fullName={fullName}

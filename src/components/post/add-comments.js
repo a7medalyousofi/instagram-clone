@@ -57,11 +57,11 @@ export default function AddComment({
           ref={commentInput}
         />
         <button
-          className={`text-sm font-bold text-blue-500 ${
-            !comment && "text-blue-500/50"
+          className={`text-sm font-semibold ${
+            !comment ? "text-gray-400" : "text-blue-600"
           }`}
           type="button"
-          disabled={comment.length < 1}
+          disabled={!comment}
           onClick={handleSubmitComment}
         >
           Post

@@ -12,10 +12,10 @@ export default function Profile() {
 
   useEffect(() => {
     async function checkUserExists() {
-      const user = await getUserByUsername(username);
+      const [user] = await getUserByUsername(username);
 
-      if (user.length > 0) {
-        setUser(user[0]);
+      if (user?.userId) {
+        setUser(user);
       } else {
         navigate(ROUTES.NOT_FOUND);
       }
@@ -26,7 +26,7 @@ export default function Profile() {
   return user?.username ? (
     <>
       <Header />
-      <main className="mx-auto grid max-w-screen-lg p-4 pt-20">
+      <main className="mx-auto grid max-w-screen-lg space-y-4 py-4 pt-[75px] sm:space-y-6 sm:px-4 sm:pt-20">
         <UserProfile user={user} />
       </main>
     </>

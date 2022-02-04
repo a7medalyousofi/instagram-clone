@@ -49,120 +49,123 @@ export default function Header({
       isLoggedInUserFollowingProfile();
     }
   }, [user.username, profileUserId]);
-  console.log("user", user);
 
   return (
     <>
-      <div className="grid grid-cols-3 items-center gap-4 overflow-hidden rounded-xl border border-gray-200 bg-white py-4 px-4 md:gap-8 md:py-8">
-        {user.username ? (
-          <div className="col-span-1 mx-auto h-20 w-20 select-none rounded-full bg-gradient-to-t from-black via-white to-red-600 p-[2px] md:h-40 md:w-40 md:p-1">
-            <div className="rounded-full bg-white p-[2px] md:p-1">
-              <img
-                className="h-full w-full rounded-full"
-                alt={`${user.username} profile picture`}
-                src={`/images/avatars/${profileUsername}.jpg`}
-                onError={(e) => {
-                  e.target.src = DEFAULT_IMAGE_PATH;
-                }}
-              />
+      <div className="border-y border-gray-200 bg-white sm:rounded-xl sm:border">
+        <div className="grid grid-cols-3 items-center gap-4 overflow-hidden">
+          <div className="col-span-3 flex flex-col items-center justify-center gap-5 py-4 px-4 sm:flex-row sm:gap-10 sm:py-8 md:gap-20">
+            <div>
+              {user.username ? (
+                <div className="col-span-1 mx-auto h-20 w-20 select-none rounded-full bg-gradient-to-t from-black via-white to-red-600 p-[2px] md:h-40 md:w-40 md:p-1">
+                  <div className="rounded-full bg-white p-[2px] md:p-1">
+                    <img
+                      className="h-full w-full rounded-full"
+                      alt={`${user.username}`}
+                      src={`/images/avatars/${profileUsername}.jpg`}
+                      onError={(e) => {
+                        e.target.src = DEFAULT_IMAGE_PATH;
+                      }}
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div style={{ lineHeight: 1 }} className="mx-auto">
+                  <Skeleton circle height={160} width={160} count={1} />
+                </div>
+              )}
+            </div>
+
+            <div className="flex flex-col items-center justify-center space-y-4 text-center sm:items-start sm:justify-start sm:text-left">
+              <div className="space-y-2">
+                {!profileUsername ? (
+                  <div style={{ lineHeight: 1 }}>
+                    <Skeleton count={1} width={100} height={32} />
+                  </div>
+                ) : (
+                  <p className="text-2xl">{profileUsername}</p>
+                )}
+
+                {!fullName ? (
+                  <div style={{ lineHeight: 1 }}>
+                    <Skeleton count={1} width={150} height={32} />
+                  </div>
+                ) : (
+                  <h2 className="font-medium capitalize">{fullName}</h2>
+                )}
+              </div>
+
+              {!activeBtnFollow && isFollowingProfile === null ? (
+                <div style={{ lineHeight: 1 }}>
+                  <Skeleton count={1} width={70} height={32} />
+                </div>
+              ) : (
+                activeBtnFollow && (
+                  <button
+                    className={`btn py-1 px-6 text-base ${
+                      isFollowingProfile ? "btn__outlined" : "btn__primary"
+                    }`}
+                    type="button"
+                    onClick={handleToggleFollow}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter") {
+                        handleToggleFollow();
+                      }
+                    }}
+                  >
+                    {isFollowingProfile ? "Unfollow" : "Follow"}
+                  </button>
+                )
+              )}
             </div>
           </div>
-        ) : (
-          <div className="flex-grow">
-            <Skeleton circle height={160} width={160} count={1} />
-          </div>
-        )}
-        <div className="col-span-2 space-y-2 md:space-y-2">
-          {/* Username + follow button */}
-          <div className="flex items-center justify-start space-x-4 md:space-x-8">
-            {!profileUsername ? (
-              <div style={{ lineHeight: 1 }}>
-                <Skeleton count={1} width={100} height={32} />
-              </div>
-            ) : (
-              <p className="text-2xl">{profileUsername}</p>
-            )}
 
-            {!activeBtnFollow && isFollowingProfile === null ? (
-              <div style={{ lineHeight: 1 }}>
-                <Skeleton count={1} width={70} height={26} />
-              </div>
-            ) : (
-              activeBtnFollow && (
-                <button
-                  className={`btn btn__sm ${
-                    isFollowingProfile ? "btn__outlined" : "btn__primary"
-                  } md:mt-0`}
-                  type="button"
-                  onClick={handleToggleFollow}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      handleToggleFollow();
-                    }
-                  }}
-                >
-                  {isFollowingProfile ? "Unfollow" : "Follow"}
-                </button>
-              )
-            )}
-          </div>
-          {/* Full Name */}
-          {!fullName ? (
-            <div style={{ lineHeight: 1 }}>
-              <Skeleton count={1} width={150} height={24} />
+          <div className="col-span-3 border-t border-gray-200 p-4">
+            <div className="space-y-2 md:space-y-4">
+              {!followerCount || !following ? (
+                <div className="flex items-center justify-evenly space-x-4 md:space-x-4">
+                  <div
+                    style={{ lineHeight: 1 }}
+                    className="flex flex-col items-center"
+                  >
+                    <Skeleton count={1} width={68} height={32} />
+                  </div>
+                  <div
+                    style={{ lineHeight: 1 }}
+                    className="flex flex-col items-center"
+                  >
+                    <Skeleton count={1} width={68} height={32} />
+                  </div>
+                  <div
+                    style={{ lineHeight: 1 }}
+                    className="flex flex-col items-center"
+                  >
+                    <Skeleton count={1} width={68} height={32} />
+                  </div>
+                </div>
+              ) : (
+                <ul className="flex items-center justify-evenly space-x-4 md:space-x-8">
+                  <li className="flex flex-col items-center justify-center text-gray-400">
+                    <span className="mr-1 font-bold text-gray-600">
+                      {photosCount}
+                    </span>
+                    {photosCount > 1 ? "Posts" : "Post"}
+                  </li>
+                  <li className="flex flex-col items-center justify-center text-gray-400">
+                    <span className="mr-1 font-bold text-gray-600">
+                      {followerCount}
+                    </span>
+                    {followerCount === 1 ? `Follower` : `Followers`}
+                  </li>
+                  <li className="flex flex-col items-center justify-center text-gray-400">
+                    <span className="mr-1 font-bold text-gray-600">
+                      {following.length}
+                    </span>
+                    Following
+                  </li>
+                </ul>
+              )}
             </div>
-          ) : (
-            <h2 className="font-medium capitalize">{fullName}</h2>
-          )}
-
-          {/* Post + Followers + Following Counts */}
-          <div className="space-y-2 md:space-y-4">
-            {!followerCount || !following ? (
-              <div className="flex space-x-4 md:space-x-8">
-                <div
-                  style={{ lineHeight: 1 }}
-                  className="flex flex-col items-center space-y-1"
-                >
-                  <Skeleton count={1} width={20} height={24} />
-                  <Skeleton count={1} width={37} height={21} />
-                </div>
-                <div
-                  style={{ lineHeight: 1 }}
-                  className="flex flex-col items-center space-y-1"
-                >
-                  <Skeleton count={1} width={20} height={24} />
-                  <Skeleton count={1} width={67} height={21} />
-                </div>
-                <div
-                  style={{ lineHeight: 1 }}
-                  className="flex flex-col items-center space-y-1"
-                >
-                  <Skeleton count={1} width={20} height={24} />
-                  <Skeleton count={1} width={68} height={21} />
-                </div>
-              </div>
-            ) : (
-              <ul className="flex space-x-4 md:space-x-8">
-                <li className="flex flex-col items-center justify-center text-gray-400">
-                  <span className="mr-1 font-bold text-gray-600">
-                    {photosCount}
-                  </span>
-                  {photosCount > 1 ? "Posts" : "Post"}
-                </li>
-                <li className="flex flex-col items-center justify-center text-gray-400">
-                  <span className="mr-1 font-bold text-gray-600">
-                    {followerCount}
-                  </span>
-                  {followerCount === 1 ? `Follower` : `Followers`}
-                </li>
-                <li className="flex flex-col items-center justify-center text-gray-400">
-                  <span className="mr-1 font-bold text-gray-600">
-                    {following.length}
-                  </span>
-                  Following
-                </li>
-              </ul>
-            )}
           </div>
         </div>
       </div>

@@ -28,10 +28,10 @@ export default function Profile({ user }) {
       });
     }
     getProfileInfoAndPhotos();
-  }, [user.username]);
+  }, [user]);
 
   return (
-    <div className="space-y-6">
+    <>
       <Header
         photosCount={photoCollection ? photoCollection.length : 0}
         profile={profile}
@@ -39,7 +39,7 @@ export default function Profile({ user }) {
         setFollowerCount={dispatch}
       />
       <Photos photos={photoCollection} />
-    </div>
+    </>
   );
 }
 

@@ -7,22 +7,24 @@ import { DEFAULT_IMAGE_PATH } from "../../constants/paths";
 const User = ({ username, fullName, emailAddress }) => (
   <Link
     to={`/p/${username}`}
-    className="flex items-center gap-6 overflow-hidden rounded-xl border border-gray-200 bg-white p-4"
+    className="flex items-center gap-x-6 overflow-hidden border-y border-gray-200 bg-white p-4 sm:rounded-xl sm:border"
   >
     {!username ? (
       <div className="avatar__sm">
         <Skeleton circle height="100%" containerClassName="avatar-skeleton" />
       </div>
     ) : (
-      <div className="h-14 w-14 shrink-0 select-none">
-        <img
-          className="h-full w-full rounded-full bg-slate-100 ring-2 ring-blue-400 ring-offset-2"
-          src={`/images/avatars/${username}.jpg`}
-          alt="default avatar"
-          onError={(e) => {
-            e.target.src = DEFAULT_IMAGE_PATH;
-          }}
-        />
+      <div className="h-14 w-14 shrink-0 select-none rounded-full bg-gradient-to-t from-black via-white to-red-600 p-[2px] md:h-16 md:w-16 md:p-[3px]">
+        <div className="rounded-full bg-white p-[2px] md:p-[3px]">
+          <img
+            className="h-full w-full rounded-full "
+            src={`/images/avatars/${username}.jpg`}
+            alt="default avatar"
+            onError={(e) => {
+              e.target.src = DEFAULT_IMAGE_PATH;
+            }}
+          />
+        </div>
       </div>
     )}
     <div className="flex-grow">
@@ -36,7 +38,7 @@ const User = ({ username, fullName, emailAddress }) => (
       {!emailAddress ? (
         <Skeleton height="18px" count={1} />
       ) : (
-        <p className="text-sm font-light text-gray-400 ">{emailAddress}</p>
+        <p className="text-sm font-light text-gray-600">{emailAddress}</p>
       )}
     </div>
   </Link>

@@ -16,12 +16,12 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
     if (userId) {
       suggestedProfiles();
     }
-  }, [userId]);
+  }, [userId, following]);
 
   return (
-    <div className="flex flex-col space-y-4 overflow-hidden rounded-xl border border-gray-200 bg-white p-4 shadow-md shadow-slate-300/10">
+    <div className="flex flex-col space-y-4 overflow-hidden border-y border-gray-200 bg-white p-4 shadow-md shadow-slate-300/10 sm:border md:rounded-xl">
       <div className="align-items flex items-center justify-between text-sm">
-        <p className="font-semibold text-gray-400">Suggestions for you</p>
+        <p className="font-semibold text-gray-600">Suggestions for you</p>
       </div>
       {!profiles ? (
         <div className="grid grid-cols-6 items-center gap-4">

@@ -7,7 +7,7 @@ export default function Timeline() {
   return (
     <section className="order-2 col-span-2 overflow-hidden md:order-1">
       {!photos ? (
-        <div className="space-y-6">
+        <div className="space-y-4">
           {[...new Array(4)].map((_, index) => (
             <PostSkeleton key={index} />
           ))}
@@ -24,8 +24,8 @@ export default function Timeline() {
 export function PostSkeleton() {
   return (
     <>
-      <div>
-        <div className="mb-4 flex items-center gap-4 p-4">
+      <div className="mb-4 border-y border-gray-200 bg-white sm:rounded-xl sm:border">
+        <div className="flex items-center gap-4 p-4">
           <div className="avatar avatar__sm shrink-0">
             <Skeleton
               circle
@@ -34,7 +34,7 @@ export function PostSkeleton() {
               containerClassName="avatar-skeleton"
             />
           </div>
-          <div className="col-span-4 h-4 w-32 leading-3">
+          <div className="h-4 w-32 leading-3">
             <Skeleton count={1} containerClassName="avatar-skeleton" />
           </div>
         </div>
@@ -43,6 +43,31 @@ export function PostSkeleton() {
           containerClassName="avatar-skeleton"
           className="post__img__skeleton"
         />
+        <div className="space-y-4 ">
+          <div className="h-4 p-4 leading-3">
+            <Skeleton
+              count={1}
+              width={80}
+              containerClassName="avatar-skeleton"
+            />
+          </div>
+
+          <div className="h-4 px-4 leading-3">
+            <Skeleton
+              count={1}
+              width={160}
+              containerClassName="avatar-skeleton"
+            />
+          </div>
+          <div className="grid grid-cols-5 gap-4 border-t border-gray-200 p-4 sm:gap-6">
+            <div className="col-span-4 h-4 space-x-7 leading-3">
+              <Skeleton count={1} containerClassName="avatar-skeleton" />
+            </div>
+            <div className="h-4 space-x-7 leading-3">
+              <Skeleton count={1} containerClassName="avatar-skeleton" />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -17,12 +17,8 @@ function ProtectedRoutes({ user }) {
   //   dashboard = <Navigate to={ROUTES.DASHBOARD} />;
   // }
   if (location.pathname === ROUTES.LOGIN && isAuth) {
-    console.log("==> isAuth", isAuth);
-    console.log("==> location.pathname", location.pathname);
     return <Navigate to={ROUTES.DASHBOARD} replace={true} />;
   }
-  console.log("==> isAuth", isAuth);
-  console.log("==> location.pathname", location.pathname);
   return isAuth ? <Outlet /> : <Navigate to={ROUTES.LOGIN} />;
 }
 
